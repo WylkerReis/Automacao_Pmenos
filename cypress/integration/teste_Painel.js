@@ -4,7 +4,7 @@ import { login, loginInvalido, imprimeDsm, naoImprimeDsm } from "Funcoes.js";
 describe('Painel de vendas', () =>{
 describe('Login', () =>{
   it.only('Deve logar', ()=>{
-    cy.invoke(login).screenshot
+    cy.invoke(login)
   })
 
   it('Não deve logar', () =>{
