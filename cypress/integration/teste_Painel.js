@@ -24,7 +24,7 @@ describe('Funcional',() => {
   beforeEach(() => {
     login()
   })
-  it('CT 01 - Gerar pré-venda integrador PBM', () =>{
+  it.only('CT 01 - Gerar pré-venda integrador PBM', () =>{
      naoImprimeDsm()
   })
 })
