@@ -1,25 +1,28 @@
-export function matricula(int = M) {
-    M = 108466;
+export function matricula(mat=108466) {
+    return mat;
 }
 
-export function senha (string = S) {
-    S = 'epm.2020';
+export function senha (sen="epm.2020") {
+    return sen;
 }
 
-export function login() {
+export function login(
+) {
     cy.visit('http://k8shomo.pmenos.com.br/painelvendas/#/login')
-    cy.get('#matricula').should('be.visible').type(matricula)
-    cy.get('[type=password]').should('be.visible').type(senha)
+    cy.get('#matricula').should('be.visible').type(matricula())
+    cy.get('[type=password]').should('be.visible').type(senha())
     cy.get('button.btn-primary').should('be.visible').click()
     cy.url().should('not.eq', '/')
+    return cy;
 }
 
 export function loginInvalido() {
     cy.visit('http://k8shomo.pmenos.com.br/painelvendas/#/login')
-    cy.get('input#matricula').should('be.visible').type(matricula)
-    cy.get('[type=password]').should('be.visible').type(senha)
+    cy.get('input#matricula').should('be.visible').type(matricula())
+    cy.get('[type=password]').should('be.visible').type(senha("abc"))
     cy.get('button.btn-primary').should('be.visible').click()
     cy.url().should('not.eq', '/')
+    return cy;
 }
 
 export function imprimeDsm() {
@@ -28,8 +31,9 @@ export function imprimeDsm() {
     cy.get('div.input-group:last-child').get('button.botao-pesquisar:first-child').should('be.visible').click()
     cy.get('#impressoras').should('be.visible')
     cy.get('button.btn-danger').should('be.visible')
-    cy.get('#matricula').should('be.visible').type(matricula)
-    cy.get('button.btn-sucess').should('be.visible').click().screenshot
+    cy.get('#matricula').should('be.visible').type(matricula())
+    cy.get('button.btn-sucess').should('be.visible').click().screenshot()
+    return cy;
 }
 
 export function naoImprimeDsm() {
@@ -40,6 +44,7 @@ export function naoImprimeDsm() {
     cy.get('button.btn-sucess').should('be.visible').click()
     cy.get('#matricula').should('be.visible')
     cy.get('button.btn-danger').should('be.visible')
+    return cy;
 }
 
 /*
