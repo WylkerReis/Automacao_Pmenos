@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cypress:open": "cypress run --config baseUrl=http://k8shomo.pmenos.com.br/painelvendas#/login --record --key 3e33a93f-ab5a-4030-917d-c8bb12303201"
+    "cypress:open": "cypress run --record --key 3e33a93f-ab5a-4030-917d-c8bb12303201" 
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -15,5 +14,3 @@
     "npm": "^6.14.8"
   }
 }
-
-

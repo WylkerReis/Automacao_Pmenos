@@ -4,11 +4,11 @@ import { login, loginInvalido, imprimeDsm, naoImprimeDsm } from "../functions/Fu
 describe('Painel de vendas', () =>{
 describe('Login', () =>{
   it('Deve logar', ()=>{
-      login().screenshot()
+      login()
   })
 
   it('Não deve logar', () =>{
-      loginInvalido().screenshot()
+      loginInvalido()
   })
 })
 describe('DSM', () =>{

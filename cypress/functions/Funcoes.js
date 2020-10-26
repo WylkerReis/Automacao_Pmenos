@@ -10,8 +10,10 @@ export function login() {
     cy.visit('http://k8shomo.pmenos.com.br/painelvendas/#/login')
     cy.get('#matricula').should('be.visible').type(matricula())
     cy.get('[type=password]').should('be.visible').type(senha())
-    cy.get('button.btn-primary').should('be.visible').click().screenshot()
-    cy.url().should('not.eq', '/')
+    cy.get('button.btn-primary').should('be.visible').click()
+    cy.wait(1000)
+    cy.screenshot()
+    cy.url().should('not.contain', '/login')
     return cy;
 }
 
@@ -19,8 +21,9 @@ export function loginInvalido() {
     cy.visit('http://k8shomo.pmenos.com.br/painelvendas/#/login')
     cy.get('input#matricula').should('be.visible').type(matricula())
     cy.get('[type=password]').should('be.visible').type(senha("abc"))
-    cy.get('button.btn-primary').should('be.visible').click().screenshot()
-    cy.url().should('eq', '/')
+    cy.get('button.btn-primary').should('be.visible').click()
+    cy.screenshot()
+    cy.url().should('contain', '/login')
     return cy;
 }
 
@@ -50,7 +53,5 @@ export function naoImprimeDsm() {
     //cy.get('button.btn-sucess').should('be.visible') // botão imprime DSM
     cy.get('button.btn-danger:last-child').should('be.visible').click() // botão não imprime DSM
     cy.get('.fa-search').should('be.visible')
-    cy.get('#pesquisaProdutos').should('be.visible').type('264717')
-    cy.get('.fa-search').click()
     return cy;
 }
