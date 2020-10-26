@@ -2,7 +2,7 @@ export function matricula(mat=108466) {
     return mat;
 }
 
-export function senha (sen="epm.2020") {
+export function senha (sen="dcvb") {
     return sen;
 }
 
