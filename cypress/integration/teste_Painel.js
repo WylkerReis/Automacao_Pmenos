@@ -1,31 +1,37 @@
 /// <reference types ="Cypress"/>
-import { login, loginInvalido, imprimeDsm, naoImprimeDsm } from "../functions/Funcoes";
+import * as teste from "../functions/Funcoes";
+import * as telaInicial from "/Users/108466/Documents/Projetos_Cypress/Cypress_casa/cypress/Page/telaInicial";
 
 describe('Painel de vendas', () =>{
 describe('Login', () =>{
-  it('Deve logar', ()=>{
-      login()
+  it('Deve logar', () =>{
+      teste.login()
   })
-
   it('Não deve logar', () =>{
-      loginInvalido()
+      teste.loginInvalido()
   })
 })
-describe('DSM', () =>{
-  beforeEach(() => {
-    login()
+
+describe.only('DSM', () =>{
+    beforeEach(() => {
+      teste.login()
+      telaInicial.assertInicio()
+
   })
   it('Imprimir DSM Ouro', () => {
-    imprimeDsm()
+    teste.imprimeDsm()
+    telaInicial.assertInicioCPF()
   })
 })
 
 describe('Funcional',() => {
   beforeEach(() => {
-    login()
+    teste.login()
+    telaInicial.assertInicio()
   })
   it('CT 01 - Gerar pré-venda integrador PBM', () =>{
-     naoImprimeDsm()
+     teste.naoImprimeDsm()
+     telaInicial.assertInicioCPF()
   })
 })
 })
