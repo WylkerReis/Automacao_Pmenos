@@ -1,6 +1,6 @@
 /// <reference types ="Cypress"/>
 
-export function assertLogin() {
+export function assertLogin() { // Função com os asserts da tela de login 
     assertAvatarLogin()
     assertImgLogin()
     assertLblMatriculaLogin()
@@ -12,9 +12,9 @@ export function assertLogin() {
 // Funções com asserts dos componentes da tela
 export function assertAvatarLogin() { cy.get('.avatar').should('be.visible') }
 export function assertImgLogin() { cy.get('img').should('be.visible') }
-export function assertLblMatriculaLogin() { cy.get(':nth-child(3) > .position-relative > .control-label').should('be.visible') }
+export function assertLblMatriculaLogin() { cy.get(':nth-child(3) > .position-relative > .control-label').should('be.visible').and('have.text', 'Matricula') }
 export function assertCampoMatriculaLogin() { cy.get('#matricula').should('be.visible') }
-export function assertLblSenhaLogin() { cy.get(':nth-child(4) > .position-relative > .control-label').should('be.visible') }
+export function assertLblSenhaLogin() { cy.get(':nth-child(4) > .position-relative > .control-label').should('be.visible').and('have.text', 'Senha') }
 export function assertCampoSenhaLogin() { cy.get(':nth-child(4) > .position-relative > .form-control').should('be.visible') }
 export function assertBtnLogar() { cy.get('.btn-block').should('be.visible') }
 

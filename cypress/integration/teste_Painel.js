@@ -12,7 +12,7 @@ describe('Login', () =>{
   })
 })
 
-describe.only('DSM', () =>{
+describe('DSM', () =>{
     beforeEach(() => {
       teste.login()
       telaInicial.assertInicio()
